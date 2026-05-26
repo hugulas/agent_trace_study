@@ -1,0 +1,16 @@
+# Chapter Insight Ledger
+
+Scope: every report chapter, including abstract, is strengthened with clear claims, local evidence, and either figures or analytical tables. Date boundary: source corpus through 2026-05-26; no new web claims are introduced.
+
+| Chapter | Status | Main judgment | LLM wiki evidence | Notes evidence | Figure/table object | Completion requirement |
+| --- | --- | --- | --- | --- | --- | --- |
+| 摘要 | done | Agent observability is an actionable evidence layer, not log storage. | `wiki/index.md`, `concepts/agent-observability-landscape.md`, `concepts/cost-token-and-resource-attribution.md` | cross-corpus summaries | evidence map table | State thesis, evidence base, and five-layer conclusion. |
+| 1 范围与材料组织 | done | The corpus must be read as four evidence types with different reliability roles. | `concepts/*`, `comparisons/academic-vs-product-observability.md` | p-001..p-030, c-*, s1/s2/s3, a-* | corpus role table | Separate research, standards, product, and framework materials. |
+| 2 核心词条 | done | Terms should be organized by evidence use: diagnosis, evaluation, audit, cost, and evolution. | `terms/*`, `viewpoints/*` | AgentTrace, AgentRx, AgentPex, AHE, AAT, token economics notes | term-to-evidence table | Define terms and explain why they matter operationally. |
+| 3 五层架构 | done | Observability is a five-layer evidence pipeline. | `concepts/trace-schema-and-telemetry-standards.md`, `concepts/failure-diagnosis-and-attribution.md` | p-014, p-001, p-017, s1-007 | AgentTrace, AgentRx, HarnessAudit, AgentCore figures | Each layer has judgment, mechanism, figure, and implication. |
+| 4 七个核心观点 | done | The report's claims must be falsifiable engineering positions. | `viewpoints/*` | p-006, p-011, p-017, s1-007, s3-011 | monitorability, AHE, audit, cost figures | Each viewpoint has mechanism, evidence, implication. |
+| 5 关键对比 | done | Comparisons should guide architecture and evaluation decisions. | `comparisons/*` | p-021, p-022, p-001, c-014 | comparison tables, multi-agent taxonomy | Tables include decision rules. |
+| 6 方法谱系 | done | Methods form a pipeline from capture to diagnosis, governance, platform, and token economics. | `concepts/*`, `entities/*` | p-003, p-024, p-025, p-014 | DoVer, Lifting Traces, AgentSight figures | Explain transitions between method families. |
+| 7 研究缺口 | done | Open problems are failures of integration across schema, causality, privacy, quality, and budget. | `comparisons/*`, `terms/token-budget.md` | p-016, p-021, p-022, c-012, s3-011 | research gap matrix | Map each gap to missing evidence and why it blocks deployment. |
+| 8 系统设计建议 | done | Design should start from trace schema and policy observability, not dashboard UI. | `terms/*`, `viewpoints/cost-control-is-policy-not-only-dashboard.md` | s1-007, s1-010, c-014, p-011 | implementation checklist table, AgentCore/GenAIOps references | Convert findings into implementation requirements. |
+| 9 结论 | done | The field is converging on a shared evidence layer for reliable production agents. | `wiki/index.md`, concepts and viewpoints | corpus-wide synthesis | closing synthesis table | Tie monitoring, diagnosis, evaluation, audit, cost, and evolution together. |
