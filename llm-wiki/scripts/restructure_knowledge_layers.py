@@ -177,6 +177,42 @@ TERMS_DEF = {
         "keywords": ["cost", "token", "invoice", "budget", "成本", "pricing", "resource attribution"],
         "questions": ["成本应该按请求、任务、工具链还是智能体分摊？", "失败重试和长上下文膨胀如何暴露？", "成本信号如何与 trace join？"],
     },
+    "token-economics": {
+        "title": "Token 经济学",
+        "definition": "Token 经济学把智能体系统中的 token 视为可计量、可归因、可预算和可优化的计算资源，关注 token 投入如何转化为任务质量、延迟、可靠性和业务价值。",
+        "keywords": ["token economics", "token", "economics", "token 经济", "token经济", "消耗", "成本", "efficiency", "spend"],
+        "questions": ["token 增加带来的质量收益是否递减？", "多智能体性能提升是协作收益还是 token 预算扩张？", "哪些 token 消耗属于必要推理，哪些属于浪费？"],
+    },
+    "token-budget": {
+        "title": "Token 预算",
+        "definition": "Token 预算是在任务、会话、用户、团队或工作流层面对输入、输出、思考、工具返回和重试 token 设置上限、配额和告警阈值的工程机制。",
+        "keywords": ["budget", "quota", "limit", "token", "预算", "配额", "限额", "guardrail"],
+        "questions": ["预算应该绑定到单次请求、完整任务还是用户会话？", "超预算时应该降级模型、压缩上下文还是中止执行？", "预算策略如何避免牺牲关键任务质量？"],
+    },
+    "context-bloat": {
+        "title": "上下文膨胀",
+        "definition": "上下文膨胀指长程智能体在累积消息、工具返回、检索片段、记忆和多智能体通信时不断扩大 prompt，导致成本、延迟和错误传播同步上升。",
+        "keywords": ["context", "long context", "上下文", "膨胀", "token", "history", "memory", "retrieval"],
+        "questions": ["哪些历史信息真正影响下一步决策？", "上下文压缩会损失哪些可监控和审计信号？", "长上下文成本应如何与失败风险一起评估？"],
+    },
+    "cache-and-reuse": {
+        "title": "缓存与复用",
+        "definition": "缓存与复用通过 prompt cache、语义缓存、工具结果缓存、检索结果复用和中间产物复用降低重复 token 与外部调用成本，但需要处理失效、隐私和一致性问题。",
+        "keywords": ["cache", "caching", "缓存", "reuse", "复用", "memoization", "dedup", "重复"],
+        "questions": ["哪些输入和工具结果可以安全复用？", "缓存命中率如何进入 trace 与成本归因？", "缓存错误会如何放大为任务失败或合规风险？"],
+    },
+    "model-routing": {
+        "title": "模型路由",
+        "definition": "模型路由根据任务难度、上下文长度、风险等级、延迟目标和预算在不同模型之间动态选择，以在质量、成本和速度之间取得可控折中。",
+        "keywords": ["routing", "router", "model routing", "模型路由", "cascade", "cascading", "gpt-4o-mini", "quality cost"],
+        "questions": ["路由器如何判断任务是否需要昂贵模型？", "级联推理何时比单次强模型调用更经济？", "错误路由的质量损失如何被监控？"],
+    },
+    "cost-visibility": {
+        "title": "成本可见性",
+        "definition": "成本可见性是在账单到来之前，把 token、模型价格、工具调用、重试、缓存命中和用户/功能维度实时呈现出来，使团队能在运行期发现成本异常。",
+        "keywords": ["cost visibility", "invoice", "bill", "billing", "spend", "成本可见", "账单", "成本异常"],
+        "questions": ["成本异常应按什么粒度告警？", "账单维度如何回连到 trace、用户和功能？", "成本可见性如何转化为具体优化动作？"],
+    },
     "multi-agent-failure": {
         "title": "多智能体失败",
         "definition": "多智能体失败来自角色分工、通信协议、依赖链、协调策略和共享状态中的错误传播，不能只用单智能体最终成功率解释。",
@@ -228,6 +264,24 @@ VIEWPOINTS_DEF = {
         "thesis": "token 和调用成本不是财务尾项，而是反映长上下文、重试、工具循环、失败恢复和多智能体协作效率的运行信号。",
         "keywords": ["cost", "token", "invoice", "budget", "成本", "optimization"],
         "implications": ["成本 dashboard 必须能 drill down 到 trace。", "失败样本应同时看质量损失和资源浪费。", "优化策略需要区分模型成本、工具成本和重试成本。"],
+    },
+    "token-efficiency-needs-quality-denominator": {
+        "title": "Token 效率必须带质量分母",
+        "thesis": "只看 token 降低会把系统推向廉价但无效的执行；只看成功率又会掩盖 token 暴涨。合理的 token 经济学应把单位成本质量、单位任务成本和失败浪费同时纳入分析。",
+        "keywords": ["token", "efficiency", "quality", "成本", "消耗", "成功率", "accuracy", "variance"],
+        "implications": ["报告性能提升时应同步报告 token、延迟和调用次数。", "优化目标应区分节省 token 与提升 token 产出率。", "多智能体系统尤其需要用质量/token 比例解释收益。"],
+    },
+    "cost-control-is-policy-not-only-dashboard": {
+        "title": "成本控制不是只做 dashboard",
+        "thesis": "成本可见性只能说明钱花在哪里，真正的成本控制还需要预算策略、模型路由、缓存复用、上下文裁剪和超预算降级等运行时政策。",
+        "keywords": ["budget", "routing", "cache", "cost optimization", "成本优化", "成本控制", "limit"],
+        "implications": ["trace schema 应记录预算决策和降级动作。", "告警之后必须能定位到可执行的优化旋钮。", "平台应把成本策略作为生产 guardrail，而不是财务报表。"],
+    },
+    "context-is-economic-liability": {
+        "title": "上下文是一种经济负债",
+        "thesis": "长上下文改善智能体记忆和可解释性，但每轮复制历史都会增加 token 成本、延迟和错误传播面；上下文管理应被视为成本工程核心问题。",
+        "keywords": ["context", "long context", "memory", "token", "上下文", "压缩", "retrieval"],
+        "implications": ["上下文裁剪要与审计和监控需求共同设计。", "记忆、检索和摘要都应报告成本收益。", "长程任务的成本异常常常首先表现为上下文膨胀。"],
     },
 }
 
@@ -297,6 +351,39 @@ COMPARISONS_DEF = {
             ("Braintrust / Helicone", "强调 eval、gateway、请求记录、成本和开发工作流"),
             ("Datadog / Splunk / Elastic / New Relic", "把 LLM/agent telemetry 接入既有 APM 和企业运维栈"),
             ("AgentOps", "更明确面向 agent session、工具调用和 agent 运行监控"),
+        ],
+    },
+    "token-cost-vs-quality": {
+        "title": "Token 成本与质量收益对比",
+        "keywords": ["token", "cost", "quality", "accuracy", "成功率", "效率", "消耗", "成本"],
+        "axes": [
+            ("优化目标", "降低总 token 花费", "提高单位 token 产出的任务质量", "降低失败与重试造成的浪费"),
+            ("主要指标", "每请求 token、每会话成本、账单预测", "成功率/token、质量/美元、边际收益", "失败 trace 成本、重试次数、循环调用成本"),
+            ("风险", "过度压缩导致质量下降", "高质量样本可能掩盖成本不可扩展", "只处理失败不处理正常路径低效"),
+            ("需要的 trace 字段", "prompt/completion token、模型价格、用户/功能标签", "评测分数、任务难度、模型选择", "失败类别、重试链、工具循环、终止原因"),
+            ("适用场景", "预算治理、账单预警", "模型和架构比较", "生产事故复盘与系统优化"),
+        ],
+    },
+    "model-routing-vs-context-compression-vs-cache": {
+        "title": "模型路由、上下文压缩与缓存复用对比",
+        "keywords": ["routing", "cache", "context", "compression", "模型路由", "缓存", "上下文", "成本优化"],
+        "axes": [
+            ("机制", "按任务难度和预算选择模型", "裁剪、摘要或分层保留历史上下文", "复用 prompt、工具结果或语义相似响应"),
+            ("主要收益", "降低昂贵模型调用占比", "降低每轮输入 token 与延迟", "减少重复计算和外部调用"),
+            ("主要风险", "低估任务难度导致质量下降", "丢失关键证据或审计上下文", "缓存陈旧、隐私泄漏或错误复用"),
+            ("观测要求", "记录路由理由、候选模型和降级结果", "记录被裁剪内容摘要与压缩比例", "记录命中率、失效策略和复用来源"),
+            ("更适合", "任务异质性高的产品", "长程 agent 和多轮会话", "重复查询、稳定工具和高频工作流"),
+        ],
+    },
+    "financial-cost-vs-computational-cost": {
+        "title": "财务成本与计算成本对比",
+        "keywords": ["invoice", "pricing", "compute", "latency", "token", "账单", "成本", "resource"],
+        "axes": [
+            ("财务成本", "供应商账单、模型单价、API 调用费、外部工具费用"),
+            ("计算成本", "token 数、上下文长度、延迟、吞吐、重试和缓存开销"),
+            ("差异", "财务成本回答花了多少钱；计算成本解释为什么会花这些钱"),
+            ("连接方式", "把 trace 中的 token、模型、工具和用户/功能标签映射到价格表与账单维度"),
+            ("结论", "没有计算成本分解的账单只能报账，不能指导 agent 系统优化"),
         ],
     },
 }
@@ -423,9 +510,10 @@ def update_index() -> None:
     index = WIKI / "index.md"
     text = index.read_text(encoding="utf-8")
     block = """## Knowledge Layers
-- [[terms/agent-trace|词条：智能体轨迹]] · [[terms/failure-attribution|失败归因]] · [[terms/process-compliance|过程合规性]] · [[terms/trace-schema|轨迹 Schema]] · [[terms/harness|Harness]]
-- [[viewpoints/observability-is-not-logging|观点：可观测性不是日志收集]] · [[viewpoints/final-reward-is-insufficient|最终奖励不足以评估智能体]] · [[viewpoints/schema-is-the-product-boundary|Schema 决定产品边界]]
-- [[comparisons/diagnosis-vs-compliance-vs-logging|对比：诊断/合规/日志]] · [[comparisons/otel-vs-agent-specific-schema|OTel 与 Agent Schema]] · [[comparisons/observability-product-map|产品工具地图]]
+- [[terms/agent-trace|词条：智能体轨迹]] · [[terms/cost-attribution|成本归因]] · [[terms/token-economics|Token 经济学]] · [[terms/token-budget|Token 预算]] · [[terms/context-bloat|上下文膨胀]]
+- [[terms/cache-and-reuse|缓存与复用]] · [[terms/model-routing|模型路由]] · [[terms/cost-visibility|成本可见性]] · [[terms/trace-schema|轨迹 Schema]] · [[terms/harness|Harness]]
+- [[viewpoints/cost-is-observability-signal|观点：成本是可观测性信号]] · [[viewpoints/token-efficiency-needs-quality-denominator|Token 效率必须带质量分母]] · [[viewpoints/cost-control-is-policy-not-only-dashboard|成本控制不是只做 dashboard]] · [[viewpoints/context-is-economic-liability|上下文是一种经济负债]]
+- [[comparisons/token-cost-vs-quality|对比：Token 成本与质量收益]] · [[comparisons/model-routing-vs-context-compression-vs-cache|模型路由/上下文压缩/缓存]] · [[comparisons/financial-cost-vs-computational-cost|财务成本与计算成本]]
 """
     text = re.sub(r"\n## Knowledge Layers\n(?:.*\n)*?(?=\n## )", "\n", text)
     text = text.replace("\n## Concepts\n", f"\n{block}\n## Concepts\n")

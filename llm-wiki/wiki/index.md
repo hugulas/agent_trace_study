@@ -7,9 +7,10 @@
 
 
 ## Knowledge Layers
-- [[terms/agent-trace|词条：智能体轨迹]] · [[terms/failure-attribution|失败归因]] · [[terms/process-compliance|过程合规性]] · [[terms/trace-schema|轨迹 Schema]] · [[terms/harness|Harness]]
-- [[viewpoints/observability-is-not-logging|观点：可观测性不是日志收集]] · [[viewpoints/final-reward-is-insufficient|最终奖励不足以评估智能体]] · [[viewpoints/schema-is-the-product-boundary|Schema 决定产品边界]]
-- [[comparisons/diagnosis-vs-compliance-vs-logging|对比：诊断/合规/日志]] · [[comparisons/otel-vs-agent-specific-schema|OTel 与 Agent Schema]] · [[comparisons/observability-product-map|产品工具地图]]
+- [[terms/agent-trace|词条：智能体轨迹]] · [[terms/cost-attribution|成本归因]] · [[terms/token-economics|Token 经济学]] · [[terms/token-budget|Token 预算]] · [[terms/context-bloat|上下文膨胀]]
+- [[terms/cache-and-reuse|缓存与复用]] · [[terms/model-routing|模型路由]] · [[terms/cost-visibility|成本可见性]] · [[terms/trace-schema|轨迹 Schema]] · [[terms/harness|Harness]]
+- [[viewpoints/cost-is-observability-signal|观点：成本是可观测性信号]] · [[viewpoints/token-efficiency-needs-quality-denominator|Token 效率必须带质量分母]] · [[viewpoints/cost-control-is-policy-not-only-dashboard|成本控制不是只做 dashboard]] · [[viewpoints/context-is-economic-liability|上下文是一种经济负债]]
+- [[comparisons/token-cost-vs-quality|对比：Token 成本与质量收益]] · [[comparisons/model-routing-vs-context-compression-vs-cache|模型路由/上下文压缩/缓存]] · [[comparisons/financial-cost-vs-computational-cost|财务成本与计算成本]]
 
 ## Concepts
 ### Engineering
