@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Token 经济学控制闭环</title>
+  <desc id="desc">A control loop architecture for token economics in LLM agent systems.</desc>
+  <style>
+    text { font-family: "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif; fill: #172033; }
+    .title { font-size: 30px; font-weight: 700; }
+    .sub { font-size: 16px; fill: #5b6778; }
+    .box { rx: 18; ry: 18; stroke-width: 2; }
+    .h { font-size: 20px; font-weight: 700; }
+    .b { font-size: 15px; fill: #334155; }
+    .s { font-size: 13px; fill: #64748b; }
+    .arrow { stroke: #475569; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <text x="60" y="58" class="title">Token 经济学控制闭环：从观测到可回滚策略</text>
+  <text x="60" y="88" class="sub">有效降本需要同时记录成本、质量、失败和策略理由，而不是只统计账单。</text>
+
+  <rect x="80" y="150" width="250" height="125" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="112" y="185" class="h">1. 观测采集</text>
+  <text x="112" y="216" class="b">token、价格、延迟、工具、</text>
+  <text x="112" y="240" class="b">缓存、压缩、重试和 trace</text>
+
+  <rect x="475" y="120" width="250" height="125" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="507" y="155" class="h">2. 成本归因</text>
+  <text x="507" y="186" class="b">按用户、功能、任务、模型、</text>
+  <text x="507" y="210" class="b">agent 和失败类别聚合</text>
+
+  <rect x="870" y="150" width="250" height="125" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="902" y="185" class="h">3. 策略决策</text>
+  <text x="902" y="216" class="b">模型路由、预算阈值、</text>
+  <text x="902" y="240" class="b">降级、缓存、上下文压缩</text>
+
+  <rect x="870" y="430" width="250" height="125" class="box" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="902" y="465" class="h">4. 执行与记录</text>
+  <text x="902" y="496" class="b">执行策略并记录候选、理由、</text>
+  <text x="902" y="520" class="b">命中、失败和人工豁免</text>
+
+  <rect x="475" y="475" width="250" height="125" class="box" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="507" y="510" class="h">5. 质量评测</text>
+  <text x="507" y="541" class="b">成功率/token、质量/美元、</text>
+  <text x="507" y="565" class="b">违规率和失败浪费成本</text>
+
+  <rect x="80" y="430" width="250" height="125" class="box" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="112" y="465" class="h">6. 回滚与治理</text>
+  <text x="112" y="496" class="b">策略版本、审批、审计、</text>
+  <text x="112" y="520" class="b">回归测试和预算豁免</text>
+
+  <path d="M330 210 C385 170 420 158 475 170" class="arrow"/>
+  <path d="M725 180 C785 180 815 190 870 210" class="arrow"/>
+  <path d="M995 275 V430" class="arrow"/>
+  <path d="M870 500 C810 535 780 545 725 545" class="arrow"/>
+  <path d="M475 545 C410 545 380 520 330 495" class="arrow"/>
+  <path d="M205 430 V275" class="arrow"/>
+
+  <rect x="365" y="308" width="470" height="80" class="box" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="395" y="340" class="h">核心原则</text>
+  <text x="395" y="370" class="b">成本策略必须与 trace、eval、billing 和 policy engine 同步演进。</text>
+  <text x="395" y="395" class="s">否则只能看到成本变化，无法解释质量变化和失败浪费。</text>
+</svg>

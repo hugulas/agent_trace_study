@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Token 经济学架构谱系</title>
+  <desc id="desc">A layered architecture comparing token visibility, control, optimization and governance approaches for LLM agents.</desc>
+  <style>
+    text { font-family: "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif; fill: #18212f; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; fill: #536172; }
+    .box { rx: 18; ry: 18; stroke-width: 2; }
+    .head { font-size: 20px; font-weight: 700; }
+    .body { font-size: 15px; fill: #334155; }
+    .small { font-size: 13px; fill: #64748b; }
+    .arrow { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    .dash { stroke-dasharray: 7 7; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="760" fill="#f8fafc"/>
+  <text x="60" y="58" class="title">Token 经济学不是单一降本手段，而是多层架构选择</text>
+  <text x="60" y="88" class="subtitle">不同做法分别作用于观测、决策、执行、评价和治理层，收益与风险不可互相替代。</text>
+
+  <rect x="70" y="130" width="235" height="160" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="95" y="165" class="head">成本可见性</text>
+  <text x="95" y="198" class="body">记录 token、模型价格、</text>
+  <text x="95" y="222" class="body">工具调用、重试链、</text>
+  <text x="95" y="246" class="body">用户/功能标签和账单</text>
+  <text x="95" y="274" class="small">回答：钱花在哪里</text>
+
+  <rect x="350" y="130" width="235" height="160" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="375" y="165" class="head">运行时控制</text>
+  <text x="375" y="198" class="body">模型路由、预算护栏、</text>
+  <text x="375" y="222" class="body">降级策略、batch、</text>
+  <text x="375" y="246" class="body">速率限制和人工豁免</text>
+  <text x="375" y="274" class="small">回答：下一步怎么花</text>
+
+  <rect x="630" y="130" width="235" height="160" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="655" y="165" class="head">上下文与缓存</text>
+  <text x="655" y="198" class="body">上下文裁剪、摘要、</text>
+  <text x="655" y="222" class="body">prompt cache、语义缓存、</text>
+  <text x="655" y="246" class="body">工具结果复用</text>
+  <text x="655" y="274" class="small">回答：能否少算一次</text>
+
+  <rect x="910" y="130" width="235" height="160" class="box" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="935" y="165" class="head">质量归一化</text>
+  <text x="935" y="198" class="body">成功率/token、质量/美元、</text>
+  <text x="935" y="222" class="body">失败浪费、边际收益、</text>
+  <text x="935" y="246" class="body">任务难度分层</text>
+  <text x="935" y="274" class="small">回答：花得是否值得</text>
+
+  <path d="M305 210 H350" class="arrow"/>
+  <path d="M585 210 H630" class="arrow"/>
+  <path d="M865 210 H910" class="arrow"/>
+
+  <rect x="95" y="350" width="1010" height="95" class="box" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="125" y="385" class="head">共同数据底座：trace + eval + billing + policy</text>
+  <text x="125" y="418" class="body">把输入/输出 token、模型选择理由、工具成本、缓存命中、压缩比例、失败类别、评测分数和预算策略写入同一关联域。</text>
+
+  <path d="M188 290 V350" class="arrow"/>
+  <path d="M468 290 V350" class="arrow"/>
+  <path d="M748 290 V350" class="arrow"/>
+  <path d="M1028 290 V350" class="arrow"/>
+
+  <rect x="90" y="505" width="300" height="130" class="box" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="120" y="540" class="head">Gateway / Proxy 路线</text>
+  <text x="120" y="572" class="body">接入快，适合请求、账单、缓存</text>
+  <text x="120" y="596" class="body">和跨模型成本统计。</text>
+  <text x="120" y="622" class="small">弱点：难看见 agent 内部状态。</text>
+
+  <rect x="450" y="505" width="300" height="130" class="box" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="480" y="540" class="head">Agent Runtime 路线</text>
+  <text x="480" y="572" class="body">能记录工具、记忆、handoff、</text>
+  <text x="480" y="596" class="body">重试和预算策略。</text>
+  <text x="480" y="622" class="small">弱点：需要框架深度集成。</text>
+
+  <rect x="810" y="505" width="300" height="130" class="box" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="840" y="540" class="head">Eval / Data Flywheel 路线</text>
+  <text x="840" y="572" class="body">把成本与质量、失败类别、</text>
+  <text x="840" y="596" class="body">回归测试和 harness patch 关联。</text>
+  <text x="840" y="622" class="small">弱点：实时止损能力较弱。</text>
+
+  <path d="M600 445 V485" class="arrow"/>
+  <path d="M600 485 H240 V505" class="arrow dash"/>
+  <path d="M600 485 V505" class="arrow dash"/>
+  <path d="M600 485 H960 V505" class="arrow dash"/>
+</svg>
