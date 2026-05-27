@@ -48,6 +48,10 @@
 
 产业界的做法更关注接入路径和可视化运营。[Datadog LLM Observability](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) [[R004]](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) 将 agent 执行流、token 使用和错误位置纳入既有 APM 体验；[Langfuse](../../notes/s2-014_langfuselangfuse__GitHub.md) [[R005]](../../notes/s2-014_langfuselangfuse__GitHub.md) 以开源自托管方式连接 trace、prompt、eval 和 dataset；[Arize Phoenix](../../notes/s2-016_Arize-aiphoenix__GitHub.md) [[R006]](../../notes/s2-016_Arize-aiphoenix__GitHub.md) 强调 open instrumentation 与评估；[AgentOps](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) [[R007]](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) 则将 session replay、token tracking 和 agent 运行监控产品化。产业路线的优点是把 trace 变成团队能使用的 timeline、dashboard、query 和 replay；局限是许多产品仍停留在“看见执行流”，尚未稳定支持因果诊断和跨平台 schema 互操作。
 
+如果把例子具体到互联网和云厂商，轨迹的产品形态会更清楚。Google 路线把 ADK/Vertex AI Agent Builder 的 agent 执行接入 Cloud Trace，使开发者能沿着分布式 trace 查看 agent、工具和后端服务之间的调用链，[Google Cloud Trace observability for ADK](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md) [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md) 的重点不是单独展示 prompt，而是把 agent 作为云应用的一段可追踪执行。AWS 路线更偏生产运维：[Amazon CloudWatch generative AI observability](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) [[R033]](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) 将生成式 AI 指标、日志和 trace 纳入 CloudWatch，[AgentCore Runtime Observability](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md) 则把 Bedrock AgentCore 的 runtime、session、工具调用和错误信号放进云端观测路径。这些材料说明，大厂的 trace 不是孤立 LLM 调试器，而是要和云监控、权限、计费、告警和服务链路统一。
+
+国内互联网和云厂商的例子也体现了类似方向，但更强调平台入口和业务开发体验。[阿里云 AgentLoop](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) [[R035]](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) 将智能体链路观测放进云监控 CMS，[百炼 Model Studio 应用观测](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) 关注应用级调用、模型请求和运行指标；[百度千帆 AppBuilder Trace](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) 提供应用构建过程中的 trace 跟踪能力；[Coze Loop](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md) 则把 trace、评测、数据集和 prompt/agent 迭代组织成产品工作流。这些例子补足了一个事实：互联网厂商更关心 trace 如何嵌入“应用搭建-评测-发布-运营”的闭环，而不仅是研究原型里的轨迹格式。
+
 因此，智能体轨迹的定义应从下游用途反推。若目标只是统计 token 和延迟，普通 LLM span 足够；若目标是失败归因，必须记录工具 schema、参数、返回、状态变化和事件依赖；若目标是审计，必须记录身份、时间顺序、策略版本和完整性字段；若目标是 token 经济学，必须记录模型选择、缓存命中、重试链、预算策略和任务质量。
 
 ### 2.2 失败归因
@@ -62,6 +66,10 @@
 
 产业界通常从另一个入口开始：先发现异常，再组织复盘。[Datadog LLM Observability](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) [[R004]](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) 通过执行流、错误 span 和性能指标帮助工程师定位可疑步骤；[AgentOps](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) [[R007]](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) 通过 session replay 和 token tracking 暴露异常会话；[Arize Phoenix](../../notes/s2-016_Arize-aiphoenix__GitHub.md) [[R006]](../../notes/s2-016_Arize-aiphoenix__GitHub.md) 则把 trace 与评估结合，支持开发者在数据集和实验层面复盘失败。产业工具的强项是快速定位入口和协作排查，弱项是因果验证。一个 span 标红或成本异常并不自动说明它是根因，仍需要 AgentRx/DoVer 式的约束和干预思想补足。
 
+互联网厂商的失败归因更常以“生产事故排查”出现，而不是以论文里的 root-cause benchmark 出现。Google ADK 接入 Cloud Trace 后，工程师可以把一次 agent 失败放回完整服务链路：是 agent 决策错、工具服务慢、后端 API 报错，还是检索/数据库层返回异常 [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md)。AWS 的 CloudWatch 与 AgentCore Runtime 观测路径把模型调用、runtime 错误、工具链路和成本/延迟指标放在一起，使排查从“读 agent 对话”扩展为“看云服务调用链和运行指标” [[R033]](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)。阿里云 AgentLoop、百炼、百度千帆和 Coze Loop 则更接近应用平台场景：开发者先在 trace 中看到哪一步组件、插件、知识库或模型调用异常，再把 bad case 放入评测或迭代流程 [[R035]](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。
+
+这些厂商例子也暴露了当前产业归因的边界：它们能较好回答“异常出现在哪个组件、哪次调用、哪个 session”，但较少直接证明“这一步就是根因”。例如工具服务 500、知识库无召回、模型输出越界、token 激增，都可能只是上游错误传播后的现象。因而本节的判断应更精确：产业平台提供的是归因入口和证据组织能力，学术方法提供的是根因验证机制；二者结合后，才可能从生产 replay 走向可验证 failure attribution。
+
 因此，失败归因在综述中应被理解为一条从运行时信号到可验证解释的链条：异常会话触发关注，结构化 trace 提供证据，约束或分类法生成候选根因，干预或回归测试验证判断，最终形成修复建议。只停在任一环节，都不能称为完整诊断。
 
 ### 2.3 过程合规性
@@ -69,6 +77,14 @@
 过程合规性评估智能体是否按系统提示、工具 schema、业务规则、权限边界和安全策略行动，而不是只看最终答案是否正确。这个词条解决的是评价对象的问题：最终成功可以掩盖过程违规，例如跳过必要确认、调用未授权工具、泄露敏感信息、绕过系统指令，或在用户不可见的中间步骤里违反业务流程。
 
 学术界对过程合规的贡献在于把“过程”变成可评测对象。[AgentPex](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces.md) [[R012]](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces.md) 从提示和工具规范中抽取行为规则，再用 judge 对完整轨迹进行合规评分，证明最终 reward 和过程规范并不等价；[Monitoring Monitorability](../../notes/p-006_Monitoring_Monitorability.md) [[R013]](../../notes/p-006_Monitoring_Monitorability.md) 研究过程信号是否能支持风险检测，说明中间推理和过程可见性本身就是监控资源；[HarnessAudit](../../notes/p-017_Auditing_Agent_Harness_Safety.md) [[R014]](../../notes/p-017_Auditing_Agent_Harness_Safety.md) 把安全评估单元从最终输出扩展到完整 harness 与执行轨迹。
+
+这三篇论文解决的问题并不相同。AgentPex 的重点是“规则从哪里来”：它把系统提示、任务约束和工具 schema 中的要求抽取成可检查规范，再判断 agent 轨迹是否出现 willful disobedience。因此它适合讨论“最终成功但过程违规”的场景，例如 agent 获得正确答案但跳过必要确认、使用了不该使用的工具，或没有遵守工具参数约束。Monitoring Monitorability 的重点是“过程是否足以被监督”：如果系统没有暴露中间状态、候选动作、风险信号或可解释过程，那么后续 monitor 即使模型很强，也缺少可用输入。HarnessAudit 的重点则是“安全评估对象是谁”：它不只看模型输出，而是把 prompt、tool、memory、权限边界和 harness 组合视为被审计对象，强调安全问题常常发生在模型与外部执行环境的连接处。
+
+| 论文 | 过程合规对象 | 主要机制 | 对本文的支撑 | 局限 |
+| --- | --- | --- | --- | --- |
+| AgentPex [[R012]](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces.md) | 系统提示、任务规范、工具 schema 与完整执行轨迹 | 从规范中抽取规则，再用 judge 检测轨迹违背 | 证明最终 reward 与过程合规不等价 | 依赖规范可抽取，隐式业务 SOP 难覆盖 |
+| Monitoring Monitorability [[R013]](../../notes/p-006_Monitoring_Monitorability.md) | 中间过程信号、风险特征和可监控性 | 分析过程可见性对 monitor 效果的影响 | 说明“能否被监控”本身是系统能力 | 对生产权限、审计和组织流程讨论较少 |
+| HarnessAudit [[R014]](../../notes/p-017_Auditing_Agent_Harness_Safety.md) | prompt、tool、memory、权限边界和 harness 运行轨迹 | 把安全审计从输出扩展到 harness 与轨迹 | 支撑过程安全和审计证据链 | 自动化修复和大规模生产验证仍不足 |
 
 ![AgentPex 过程合规流程](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces/images/fig3_agentpex_pipeline.png)
 
@@ -755,5 +771,12 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 - [R029] [AI-NativeBench](../../notes/c-008_AI-NativeBench_An_Open-Source_White-Box_.md)
 - [R030] [Cost Optimization with Observability](../../notes/s3-013_A_Guide_to_AI_Agent_Cost_Optimization_Wi.md)
 - [R031] [AgentSight](../../notes/p-025_AgentSight_System-Level_Observability_fo.md)
+- [R032] [Google Cloud Trace observability for ADK](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md)
+- [R033] [Amazon CloudWatch generative AI observability](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md)
+- [R034] [AgentCore Runtime Observability](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)
+- [R035] [阿里云 AgentLoop](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md)
+- [R036] [百炼 Model Studio 应用观测](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md)
+- [R037] [百度千帆 AppBuilder Trace](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md)
+- [R038] [Coze Loop](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)
 
 ---
