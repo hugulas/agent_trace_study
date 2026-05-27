@@ -100,11 +100,20 @@ Harness 是模型外部可编辑的执行表面，包括系统提示、工具描
 
 学术界正在把 harness 从经验配置提升为工程对象。[Agentic Harness Engineering](../../notes/p-011_Agentic_Harness_Engineering_Observabilit.md) [[R018]](../../notes/p-011_Agentic_Harness_Engineering_Observabilit.md) 提出组件可观测性、经验可观测性和决策可观测性，要求 harness 组件文件化、轨迹经验可压缩、编辑决策带可证伪预测；[Lifting Traces to Logic](../../notes/p-024_Lifting_Traces_to_Logic_Programmatic_Ski.md) [[R019]](../../notes/p-024_Lifting_Traces_to_Logic_Programmatic_Ski.md) 进一步展示轨迹可以被提升为规则、技能或程序化结构，用于后续任务复用。两者共同说明，trace 的价值不只是复盘失败，还可以推动 harness 演化。
 
+这两条学术路线的差别在于，AHE 更像“工程变更方法论”，Lifting Traces to Logic 更像“从经验到可执行知识的抽象方法”。AHE 要求编辑 prompt、tool、memory、skill 或子 agent 时说明预期修复什么、可能破坏什么，并用回归样本验证；Lifting Traces to Logic 则强调从成功/失败轨迹中抽取可复用的逻辑、规则或技能模块。前者解决“如何安全改 harness”，后者解决“trace 中哪些经验值得沉淀为新能力”。二者共同把 harness 从人工调参对象提升为可版本化、可评测、可回滚的工程表面。
+
+| 论文 | Harness 对象 | 机制重点 | 对本文的支撑 | 局限 |
+| --- | --- | --- | --- | --- |
+| Agentic Harness Engineering [[R018]](../../notes/p-011_Agentic_Harness_Engineering_Observabilit.md) | prompt、tool、memory、skill、子 agent 和编辑决策 | 组件可观测、经验压缩、带预测的 harness patch、回归验证 | 说明 harness 是可优化工程表面，而不是提示词附属品 | 生产平台中的权限、审批和多团队发布流程仍需外部机制 |
+| Lifting Traces to Logic [[R019]](../../notes/p-024_Lifting_Traces_to_Logic_Programmatic_Ski.md) | 历史轨迹、失败模式、可复用技能和规则 | 将 trace 抽象为逻辑/技能结构，支持后续任务复用 | 说明 trace 可以进入数据飞轮和能力沉淀 | 抽象质量依赖轨迹覆盖度和任务迁移性 |
+
 ![Agentic Harness Engineering 方法](../../notes/p-011_Agentic_Harness_Engineering_Observabilit/images/method.png)
 
 图 2-4 说明，harness 改进需要把运行经验、组件状态和编辑决策连接起来。它把“调 prompt”扩展为更系统的工程任务：管理工具、记忆、技能、子 agent、回归测试和回滚条件。
 
 产业界对 harness 的管理通常落在平台工作流中。[Langfuse](../../notes/s2-014_langfuselangfuse__GitHub.md) [[R005]](../../notes/s2-014_langfuselangfuse__GitHub.md) 以 prompt、trace、eval、dataset 形成闭环；[Arize Phoenix](../../notes/s2-016_Arize-aiphoenix__GitHub.md) [[R006]](../../notes/s2-016_Arize-aiphoenix__GitHub.md) 强调评估和实验；[AWS AgentCore Production Guide](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) [[R016]](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) 则把 runtime、memory、observability、成本和部署策略纳入生产运维。产业做法不一定使用 harness 这个术语，但 prompt registry、tool registry、eval set、sandbox、release、rollback 和 budget policy 实际上都在管理 harness。
+
+互联网和云厂商的例子进一步说明，harness 在产品中通常被拆成多个可运营对象。AWS AgentCore/Runtime 把 runtime、memory、tool、session 和 observability 纳入同一个生产环境，harness 变更必须面对部署、权限、成本和回滚 [[R016]](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)；Google ADK/Vertex AI Agent Builder 更强调 agent 开发框架与云 trace 的连接，harness 问题会表现为工具链路、后端服务或 agent 配置的组合问题 [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md)。阿里云百炼、百度千帆和 Coze Loop 则更接近应用构建平台：prompt、插件、知识库、评测集、发布版本和 trace bad case 都是 harness 的一部分 [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。因此，“harness”在产业界不一定作为单独菜单出现，但会分布在 prompt 管理、插件管理、知识库、eval、runtime 和发布流水线中。
 
 因此，harness 是连接诊断和改进的中间层。失败归因告诉我们哪里出错；harness 工程决定修哪里、如何验证、如何回滚。若没有 harness 版本和变更记录，trace 只能解释过去，不能稳定改善未来。
 
@@ -114,11 +123,21 @@ Harness 是模型外部可编辑的执行表面，包括系统提示、工具描
 
 审计方向的学术和标准材料强调证据可信度。[Agent Audit Trail](../../notes/c-012_Agent_Audit_Trail_A_Standard_Logging_For.md) [[R020]](../../notes/c-012_Agent_Audit_Trail_A_Standard_Logging_For.md) 关注身份、动作、参数、结果、时间顺序和完整性字段；防篡改 audit trail 相关材料说明，多 agent 框架需要原生支持记录完整性；[HarnessAudit](../../notes/p-017_Auditing_Agent_Harness_Safety.md) [[R014]](../../notes/p-017_Auditing_Agent_Harness_Safety.md) 则把安全评估落到完整执行轨迹。成本方向的材料强调经济可解释性：[Token Economics](../../notes/s3-011_Token_Economics_for_LLM_Agents_A_Dual-Vi.md) [[R021]](../../notes/s3-011_Token_Economics_for_LLM_Agents_A_Dual-Vi.md) 从计算和经济双视角分析 token 投入，[LLM Agent Cost Attribution](../../notes/s3-014_LLM_Agent_Cost_Attribution_Complete_Prod.md) [[R022]](../../notes/s3-014_LLM_Agent_Cost_Attribution_Complete_Prod.md) 强调按 agent、功能和工作流拆解成本。
 
+这组材料需要拆开理解。Agent Audit Trail 和 HarnessAudit 关心的是“证据能否追责”：谁触发了动作、在哪个策略版本下执行、是否越权、日志是否完整。Token Economics 和 Cost Attribution 关心的是“花费能否解释”：哪类任务、哪个 agent、哪个模型、哪个工具链消耗 token，质量是否抵得上成本。二者的交叉点是 trace：没有 trace，审计只能靠事故后拼日志，成本归因只能靠账单；有 trace，才能把动作、身份、策略、token、质量和失败类别 join 到一起。
+
+| 方向 | 代表材料 | 关注对象 | 需要进入 trace 的字段 | 主要风险 |
+| --- | --- | --- | --- | --- |
+| 审计轨迹 | Agent Audit Trail [[R020]](../../notes/c-012_Agent_Audit_Trail_A_Standard_Logging_For.md)、HarnessAudit [[R014]](../../notes/p-017_Auditing_Agent_Harness_Safety.md) | 身份、动作、策略、工具、权限、完整性 | actor、action、policy version、tool args summary、result、timestamp、integrity metadata | 记录太少无法追责，记录太多带来隐私泄露 |
+| 成本归因 | LLM Agent Cost Attribution [[R022]](../../notes/s3-014_LLM_Agent_Cost_Attribution_Complete_Prod.md)、AWS/GenAIOps [[R016]](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) [[R023]](../../notes/s1-010_GenAIOps_on_AWS_End-to-End_Observability.md) | 用户、功能、agent、模型、工具、工作流 | token in/out、model、tool、runtime、memory、retry、cache、task id | 只看账单无法解释浪费根因 |
+| Token 经济学 | Token Economics [[R021]](../../notes/s3-011_Token_Economics_for_LLM_Agents_A_Dual-Vi.md)、Cost Optimization with Observability [[R030]](../../notes/s3-013_A_Guide_to_AI_Agent_Cost_Optimization_Wi.md) | 质量/成本权衡、预算策略、路由和压缩 | budget policy、routing decision、compression ratio、cache hit、quality score、failure label | 降成本可能牺牲质量或合规 |
+
 ![Token 经济学架构谱系](../../assets/token-economics-architecture.svg)
 
 图 2-5 将 token 经济学拆成成本可见性、运行时控制、上下文与缓存、质量归一化、数据飞轮等路线。它说明 token 经济学不是“少用 token”的单点技巧，而是贯穿观测、决策、执行、评测和治理的系统架构。
 
 产业界已经把这些主题产品化。[AWS AgentCore Production Guide](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) [[R016]](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) 将成本拆成模型 token、runtime、memory 和 observability 流量，并提出模型路由、prompt caching、batch inference 等杠杆；[GenAIOps on AWS](../../notes/s1-010_GenAIOps_on_AWS_End-to-End_Observability.md) [[R023]](../../notes/s1-010_GenAIOps_on_AWS_End-to-End_Observability.md) 把 input/output token、生成成本、检索质量、TTFT 和上下文窗口保护写入同一观测路径；[AgentOps](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) [[R007]](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) 强调 runaway cost 检测；[Helicone](../../notes/s2-022_Helicone_LLM_Observability_Platform__Lea.md) [[R024]](../../notes/s2-022_Helicone_LLM_Observability_Platform__Lea.md) 通过 gateway/proxy 路线进入请求记录、缓存和成本管理。
+
+互联网厂商的落地路径也有差异。AWS/GenAIOps 更强调把 token、runtime、memory、observability 流量和模型路由放进云上成本治理 [[R016]](../../notes/s1-007_Amazon_Bedrock_AgentCore_Production_Oper.md) [[R023]](../../notes/s1-010_GenAIOps_on_AWS_End-to-End_Observability.md)；Helicone/AgentOps 更像 gateway 或 agent session 层的成本可见性入口，适合发现 runaway cost、重试链和高成本会话 [[R024]](../../notes/s2-022_Helicone_LLM_Observability_Platform__Lea.md) [[R007]](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md)。阿里云百炼、百度千帆和 Coze Loop 的成本/审计问题通常绑定应用、插件、知识库和评测流程：同一次 bad case 既可能是质量问题，也可能是成本浪费，还可能是过程合规问题 [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。这说明 token 经济学不能只放在财务或账单系统里，而应和 eval、trace、policy、audit log 共同建模。
 
 这组词条的共同结论是：审计、成本和 token 效率都不能在账单或事故之后才处理。它们必须进入运行时 trace：记录预算阈值、路由理由、缓存命中、压缩比例、人工豁免、策略版本、失败类别和质量分数。否则系统只能知道“花了多少钱”或“出了什么事”，却无法解释为什么发生、是否值得、下一次如何避免。
 
@@ -598,6 +617,8 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 
 这些分类都合理，但粒度和目标不同，导致它们难以直接合并。学术分类倾向于解释机制：计划错、工具错、协作错、监督错。产业分类倾向于支撑处置：哪条链路报警、哪个版本退化、哪类用户受影响、哪项成本异常。综述中可以提出的判断是：未来更可用的失败分类法应当是分层的。底层记录事件和工具错误，中层描述推理、计划、记忆、检索和协作错误，高层再映射到业务风险、安全风险和成本浪费。这里仍属于待验证推断的是：不同领域是否能共享同一套高层 taxonomy；医疗、金融、软件工程和客服 agent 的业务风险可能需要领域扩展。
 
+从互联网厂商实践看，这个缺口更明显。Google Cloud Trace 和 AWS CloudWatch/AgentCore 可以把 agent 失败放进云服务链路中观察，适合发现“哪个服务、哪个 span、哪个 runtime 事件异常” [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md) [[R033]](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)；阿里云 AgentLoop、百炼、百度千帆 AppBuilder Trace 和 Coze Loop 更偏应用平台，适合把组件、插件、知识库、模型调用和评测样本组织起来 [[R035]](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。但这些平台的分类通常服务于排障工作流，而 AgentRx、AgentPex、MAS failure taxonomy 服务于机制解释。两套分类如果不能映射，产品侧的“插件失败/知识库失败/调用超时”很难直接进入论文侧的“计划失败/工具误用/协作失败/过程违规”统计。
+
 ![多智能体失败 taxonomy 展示了协作失败的细分维度；它也说明单一错误码不足以覆盖 agent 系统的失败结构。](../../notes/p-021_Why_Do_Multi_Agent_LLM_Systems_Fail/images/taxonomy_neurips_final_10_23_25.png)
 
 ### 7.3 长轨迹与多智能体因果推断仍不可靠
@@ -605,6 +626,8 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 第三类缺口是长轨迹和多智能体场景中的因果推断。短轨迹中，失败步骤、错误输出和最终失败常常相距不远；长任务中，早期检索偏差、工具误用、记忆污染或错误子目标可能在几十步之后才表现为失败。[DoVer](../../notes/p-003_DoVer_Intervention-Driven_Auto_Debugging.md) [[R009]](../../notes/p-003_DoVer_Intervention-Driven_Auto_Debugging.md) 提供了通过干预验证候选根因的方向，[Which Agent Causes Task Failures and When](../../notes/p-022_Which_Agent_Causes_Task_Failures_and_Whe.md) [[R010]](../../notes/p-022_Which_Agent_Causes_Task_Failures_and_Whe.md) 把责任定位扩展到多智能体和时间维度，[Long-Horizon Task Mirage](../../notes/p-016_The_Long-Horizon_Task_Mirage_Diagnosing_.md) [[R011]](../../notes/p-016_The_Long-Horizon_Task_Mirage_Diagnosing_.md) 则提醒最终结果可能掩盖过程中的能力缺陷。
 
 产业界目前更常见的做法是 session replay、trace drill-down、异常 span 聚合和人工 review，[AgentOps](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) [[R007]](../../notes/s2-020_AgentOps_-_AI_Agent_Monitoring_and_Obser.md) 与 [Datadog LLM Observability](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) [[R004]](../../notes/s2-006_Monitor_troubleshoot_and_improve_AI_agen.md) 都体现了这种生产调试路径。它们有助于定位异常，但还不能保证“看到的异常就是原因”。因此未来需要把三类证据结合起来：结构化依赖图说明错误可能如何传播，干预或反事实执行说明去掉某一步后结果是否改变，多智能体责任模型说明哪个角色在什么时候引入了不可恢复的偏差。这里的核心限制是成本：大规模反事实重放、模型替换和工具重放在生产环境中可能昂贵，也可能破坏真实上下文。
+
+具体到厂商平台，Google/AWS 这类云观测路径能把 agent 与后端服务、runtime、数据库或检索链路连接起来，适合回答“异常是否来自外部依赖” [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)；Coze Loop、百炼和千帆更适合把失败样本放回应用构建、评测和 prompt/插件迭代流程 [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。这些能力对定位入口很有用，但仍缺少 DoVer 式的反事实验证和 Who&When 式的责任模型。也就是说，产业平台能把“可能的错误传播路径”展示出来，学术方法仍需要回答“哪条边是因果边”。
 
 ![Who & When 的概览图把责任定位放到多智能体时间轴上；这支持本文判断：长轨迹归因需要同时处理时间、角色和依赖边。](../../notes/p-022_Which_Agent_Causes_Task_Failures_and_Whe/images/fig1_overview.png)
 
@@ -668,6 +691,8 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 
 学术界如果只定义独立轨迹格式，容易和生产系统脱节；产业界如果只复用通用 span，容易丢失 agent 任务语义。更稳妥的架构是双层表示：底层用 OTel 保证跨服务关联和基础性能监控，上层用 agent 字段记录任务、计划、工具、状态、handoff、eval、budget 和 policy。这样既能让 trace 进入现有 APM，也能让诊断器和评测器消费 agent 语义。产品选型时，不能只看 dashboard 是否漂亮，还要检查原始轨迹导出、schema 扩展、eval 集成、隐私控制和成本 drill-down 是否支持这种双层表示。
 
+厂商实践可以作为设计校验。Google ADK 接入 Cloud Trace 说明，底层传播骨架必须能和云原生服务链路一致，否则 agent trace 会和后端 API、数据库、检索服务脱节 [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md)。AWS CloudWatch 与 AgentCore Runtime 说明，agent 语义还要和 runtime、session、工具调用、错误和成本指标共同出现，否则只能看到服务异常，不能解释 agent 行为 [[R033]](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)。阿里云 AgentLoop、百炼、百度千帆和 Coze Loop 则提醒，应用平台还需要把 trace 与知识库、插件、组件、评测样本和发布流程连起来 [[R035]](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。因此，OTel 与 agent schema 的关系不是替代，而是“传播骨架 + 任务语义 + 应用迭代对象”的三层组合。
+
 ![AgentSight architecture 显示系统级观测需要连接运行时、平台和分析组件；这支持 OTel 骨架加 agent 语义层的设计。](../../notes/p-025_AgentSight_System-Level_Observability_fo/images/fig2_agentsight_system_architecture.png)
 
 ### 8.3 对长轨迹和多智能体显式记录依赖边
@@ -676,6 +701,8 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 
 产业界常用 replay、drill-down 和告警聚合来排查问题，但对多智能体系统来说，仅有线性时间轴是不够的。设计 trace 时应把消息边、任务委派、共享状态读写、工具所有权和子 agent 返回结果记录成可查询对象。对长轨迹和多智能体任务，也不应只依赖单体 LLM judge；更稳妥的做法是结合约束检查、结构化信号、局部干预、人工复核和失败 taxonomy。这样才能区分“最终失败的 agent”和“最早引入不可恢复错误的 agent”。
 
+这条建议在产品设计中可以落成具体字段。云厂商的分布式 trace 已经有 parent span、service、latency、error 等字段，但多智能体系统还需要 agent id、role、handoff target、message edge、shared memory read/write、tool owner、delegated task id 和 sub-agent result。否则 Google/AWS 式服务链路只能说明哪个服务慢或错 [[R032]](../../notes/s1-001_Google_Cloud_Trace_observability_for_ADK.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)，却难以说明哪个 agent 把错误状态传给了下游。应用平台也类似：Coze Loop 或千帆能帮助开发者看见组件和插件执行，但如果没有显式依赖边，失败样本进入评测集后仍难以区分“知识库召回错”“规划 agent 误用结果”“执行 agent 未复核”这三种责任 [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。
+
 ![Who & When overview 把多智能体失败定位表示成跨角色、跨时间的责任问题；系统设计需要相应记录依赖边。](../../notes/p-022_Which_Agent_Causes_Task_Failures_and_Whe/images/fig1_overview.png)
 
 ### 8.4 将最终结果、过程规范、安全事件和审计证据关联起来
@@ -683,6 +710,8 @@ Token 经济学与成本控制谱系接收 trace、eval、billing 和 policy 信
 第四条建议是把最终 reward、过程规范、失败类别、安全事件和审计证据写入同一 trace 关联域。最终成功不能证明过程合规，[AgentPex](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces.md) [[R012]](../../notes/p-004_Willful_Disobedience_Automatically_Detecting_Failures_in_Agentic_Traces.md) 说明了如何从系统提示和工具 schema 中抽取规范并检测违背，[Monitoring Monitorability](../../notes/p-006_Monitoring_Monitorability.md) [[R013]](../../notes/p-006_Monitoring_Monitorability.md) 强调过程可监控性，[HarnessAudit](../../notes/p-017_Auditing_Agent_Harness_Safety.md) [[R014]](../../notes/p-017_Auditing_Agent_Harness_Safety.md) 则把 harness 安全审计作为独立对象。
 
 产业设计中，受监管场景要区分调试日志和审计日志。调试日志服务于工程定位，可以采样、摘要和短期保留；审计日志服务于追责和合规，需要身份、策略版本、时间戳、操作对象、审批状态和完整性保护。[Agent Audit Trail](../../notes/c-012_Agent_Audit_Trail_A_Standard_Logging_For.md) [[R020]](../../notes/c-012_Agent_Audit_Trail_A_Standard_Logging_For.md)、[OWASP Agentic Top 10](../../notes/s3-009_OWASP_Top_10_for_Agentic_Applications_Co.md) [[R017]](../../notes/s3-009_OWASP_Top_10_for_Agentic_Applications_Co.md)、[AI Agents in Production](../../notes/c-018_AI_Agents_in_Production_Monitoring_Guard.md) [[R015]](../../notes/c-018_AI_Agents_in_Production_Monitoring_Guard.md) 与 [Tamper-evident audit RFC](../../notes/s3-008_RFC_should_AutoGen_support_tamper-eviden.md) [[R027]](../../notes/s3-008_RFC_should_AutoGen_support_tamper-eviden.md) 共同指向这一治理设计。关键不是保存所有原文，而是让必要证据能够证明谁在什么策略版本下做了什么，以及记录是否被篡改。
+
+互联网平台的落地差异在于治理对象不同。AWS 和 CloudWatch/AgentCore 更容易把审计事件放进云账号、IAM、runtime 和日志保留策略中，适合企业级权限与合规 [[R033]](../../notes/s1-006_Amazon_CloudWatch_generative_AI_observab.md) [[R034]](../../notes/s1-008_Part_3_AgentCore_Runtime_Observability.md)；阿里云 AgentLoop、百炼、百度千帆和 Coze Loop 更贴近应用开发平台，审计对象往往是应用、插件、知识库、模型调用和发布版本 [[R035]](../../notes/s2-001_什么是AgentLoop-云监控CMS__阿里云文档.md) [[R036]](../../notes/s2-002_应用观测-大模型服务平台百炼Model_Studio__阿里云文档.md) [[R037]](../../notes/s2-003_Appbuilder_Trace跟踪功能基本用法__百度千帆文档.md) [[R038]](../../notes/s2-005_目前主流的智能体可观测性和智能体评测相关的产品调研__Coze_Loop详细介绍.md)。这意味着系统设计不能只定义一条“debug trace”，还要把同一执行中的调试证据、过程合规证据和审计证据拆成不同保留等级、不同访问权限和不同完整性要求。
 
 ![HarnessAudit pipeline 表明过程安全评估需要独立证据流；设计上应把调试证据和审计证据分层关联。](../../notes/p-017_Auditing_Agent_Harness_Safety/images/pipline.png)
 
