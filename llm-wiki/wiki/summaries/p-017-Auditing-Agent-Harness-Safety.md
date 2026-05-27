@@ -32,5 +32,5 @@ $$\mathcal{H} := (\mathcal{A}, \mathcal{T}, \mathcal{R}, \Pi, \Phi, \Sigma)$$
 
 ## Wiki Connections
 
-- Concepts: [[concepts/trace-schema-and-telemetry-standards]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]], [[concepts/audit-trails-security-and-governance]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/Claude-Code|Claude Code]], [[entities/Codex-CLI|Codex CLI]]
+- Concepts: [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [Claude Code](entities/Claude-Code.md), [Codex CLI](entities/Codex-CLI.md)

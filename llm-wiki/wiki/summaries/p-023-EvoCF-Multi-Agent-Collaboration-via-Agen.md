@@ -26,5 +26,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/failure-diagnosis-and-attribution]]
+- Concepts: [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md)
 - Entities: None identified

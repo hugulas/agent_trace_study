@@ -19,5 +19,5 @@ Helicone 的评测让我对"Proxy 模式 versus SDK 插桩模式"的架构之争
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/LangSmith|LangSmith]], [[entities/Langfuse|Langfuse]], [[entities/Arize-Phoenix|Arize Phoenix]], [[entities/Helicone|Helicone]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [LangSmith](entities/LangSmith.md), [Langfuse](entities/Langfuse.md), [Arize Phoenix](entities/Arize-Phoenix.md), [Helicone](entities/Helicone.md)

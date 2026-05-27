@@ -23,5 +23,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/observability-products-and-market-map]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/AgentOps|AgentOps]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [AgentOps](entities/AgentOps.md)

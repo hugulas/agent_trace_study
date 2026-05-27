@@ -16,5 +16,5 @@ Swarm 的最大价值在于其**极简主义设计哲学**。
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/audit-trails-security-and-governance]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/Claude-Code|Claude Code]], [[entities/Codex-CLI|Codex CLI]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [Claude Code](entities/Claude-Code.md), [Codex CLI](entities/Codex-CLI.md)

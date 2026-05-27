@@ -19,5 +19,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/evaluation-and-benchmarking]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
-- Entities: [[entities/LangSmith|LangSmith]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
+- Entities: [LangSmith](entities/LangSmith.md)

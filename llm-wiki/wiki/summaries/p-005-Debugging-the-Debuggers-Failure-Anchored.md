@@ -28,5 +28,5 @@ $$\mathcal{T} \to \mathcal{E} \to \mathcal{D} \to \mathcal{G}$$
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/cost-token-and-resource-attribution]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
 - Entities: None identified

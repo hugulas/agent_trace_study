@@ -29,5 +29,5 @@ $$
 
 ## Wiki Connections
 
-- Concepts: [[concepts/evaluation-and-benchmarking]]
+- Concepts: [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md)
 - Entities: None identified

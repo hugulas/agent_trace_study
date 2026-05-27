@@ -15,5 +15,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/Langfuse|Langfuse]], [[entities/Arize-Phoenix|Arize Phoenix]], [[entities/Braintrust|Braintrust]], [[entities/Helicone|Helicone]], [[entities/Claude-Code|Claude Code]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [Langfuse](entities/Langfuse.md), [Arize Phoenix](entities/Arize-Phoenix.md), [Braintrust](entities/Braintrust.md), [Helicone](entities/Helicone.md), [Claude Code](entities/Claude-Code.md)

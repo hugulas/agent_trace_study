@@ -17,28 +17,50 @@ Agentic systems make decisions through multi-step trajectories: prompts, model c
 
 ## Source Notes
 
-- [[summaries/c-018-AI-Agents-in-Production-Monitoring-Guard|AI Agents in Production: Monitoring, Guardrails, and Safety Best Practices]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/p-002-AIOpsLab-A-Holistic-Framework-to-Evaluat|AIOpsLab: A Holistic Framework to Evaluate AI Agents for Enabling Autonomous Clouds]] (n.d., evidence: unknown) — AIOpsLab 评估了四个基于大模型的智能体以及三个传统非大模型方法，在 48 个场景上共进行 288 次评估。四个智能体分别为 GPT-4-with-Shell、GPT-3.5-with-Shell、ReAct、Flash。
-- [[summaries/s2-021-AgentOps-AI-Infrastructure-Platform-Mark|AgentOps AI Infrastructure Platform Market Research Report 2034]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-004-Agentic-AI基础设施实践经验系列七可观测性在Agent应用的挑战与实践|Agentic AI 基础设施实践经验系列（七）：可观测性在 Agent 应用的挑战与实践]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-012-Beyond-the-Black-Box-Next-Gen-AI-Agent-M|Beyond the Black Box: Next-Gen AI Agent Monitoring]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-010-LLM-and-agentic-AI-observability-Elasti|Elastic LLM与Agentic AI可观测性技术文档]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/c-017-Essential-Framework-for-AI-Agent-Guardra|Essential Framework for AI Agent Guardrails]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s1-004-Google-ADK-vs-AWS-AgentCore-Enterprise-F|Google ADK vs AWS AgentCore: Enterprise Framework Selection Guide]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s1-001-Google-Cloud-Trace-observability-for-ADK|Google Cloud Trace observability for ADK]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s1-002-Google-boosts-Vertex-AI-Agent-Builder-wi|Google boosts Vertex AI Agent Builder with new observability and deployment tools]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-022-Helicone-LLM-Observability-Platform-Lea|Helicone LLM 可观测性平台深度评测：一键集成与智能成本优化]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-023-Helicone-Open-source-LLM-observability-f|Helicone：开源 LLM 可观测性与 AI 网关一体化平台]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-015-AI-Agent-Observability-Platform-Langfuse|Langfuse 完成 5000 万美元 B 轮融资：AI Agent 可观测性迎来产业级拐点]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s1-009-Operating-agentic-AI-with-Amazon-Bedrock|Operating agentic AI with Amazon Bedrock AgentCore and Datadog LLM Observability: Lessons from NTT DATA]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-009-Introduction-to-Splunk-AI-Agent-Monitori|Splunk AI Agent Monitoring：企业级 AI 代理可观测性官方文档]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/c-007-The-Reliability-Gap-Agent-Benchmarks-for|The Reliability Gap: Agent Benchmarks for Enterprise]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s3-015-What-Is-AI-Agent-Observability-Why-Cost|What Is AI Agent Observability? Why Cost Is What You're Missing]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-003-Appbuilder-Trace跟踪功能基本用法-百度千帆文档|千帆AppBuilder Trace跟踪功能基本用法]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- Plus 40 additional linked summaries in [[wiki/index|Index]].
+- [AI Agents in Production: Monitoring, Guardrails, and Safety Best Practices](summaries/c-018-AI-Agents-in-Production-Monitoring-Guard.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [AIOpsLab: A Holistic Framework to Evaluate AI Agents for Enabling Autonomous Clouds](summaries/p-002-AIOpsLab-A-Holistic-Framework-to-Evaluat.md) (n.d., evidence: unknown) — AIOpsLab 评估了四个基于大模型的智能体以及三个传统非大模型方法，在 48 个场景上共进行 288 次评估。四个智能体分别为 GPT-4-with-Shell、GPT-3.5-with-Shell、ReAct、Flash。
+- [Agent Contracts: A Formal Framework for Resource-Bounded Autonomous AI Systems](summaries/agentcontracts-note.md) (n.d., evidence: unknown) — 四项实验的核心结果如下：
+**实验一：迭代工作流失控预防**
+| 指标 | UNCONTRACTED | CONTRACTED | 变化 | p 值 |
+|------|-------------|-----------|------|------|
+| 令牌消耗 | 34,606 | 3,461 | -90% | 0.0007*** |
+| 方差 | 5.29B | 10.1M | 525x 降低 | — |
+| 迭代次数 | 3.00 | 1.71 | -43% | <0.0001*** |
+| 大模型调用次数
+- [AgentOps AI Infrastructure Platform Market Research Report 2034](summaries/s2-021-AgentOps-AI-Infrastructure-Platform-Mark.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Agentic AI 基础设施实践经验系列（七）：可观测性在 Agent 应用的挑战与实践](summaries/s2-004-Agentic-AI基础设施实践经验系列七可观测性在Agent应用的挑战与实践.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Best LLM Cost Tracking Tools in 2026 深度阅读笔记](summaries/costtools2026-note.md) (n.d., evidence: unknown) — 文章将八款平台划分为四个能力梯队：
+**第一梯队（闭环型）：Future AGI Agent Command Center。**
+唯一在单一运行时内同时实现追踪级成本归因、评估闭环、网关路由与五级预算的平台。
+- [Beyond the Black Box: Next-Gen AI Agent Monitoring](summaries/s2-012-Beyond-the-Black-Box-Next-Gen-AI-Agent-M.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Elastic LLM与Agentic AI可观测性技术文档](summaries/s2-010-LLM-and-agentic-AI-observability-Elasti.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Essential Framework for AI Agent Guardrails](summaries/c-017-Essential-Framework-for-AI-Agent-Guardra.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Google ADK vs AWS AgentCore: Enterprise Framework Selection Guide](summaries/s1-004-Google-ADK-vs-AWS-AgentCore-Enterprise-F.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Google Cloud Trace observability for ADK](summaries/s1-001-Google-Cloud-Trace-observability-for-ADK.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Google boosts Vertex AI Agent Builder with new observability and deployment tools](summaries/s1-002-Google-boosts-Vertex-AI-Agent-Builder-wi.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Helicone LLM 可观测性平台深度评测：一键集成与智能成本优化](summaries/s2-022-Helicone-LLM-Observability-Platform-Lea.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Helicone：开源 LLM 可观测性与 AI 网关一体化平台](summaries/s2-023-Helicone-Open-source-LLM-observability-f.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference](summaries/hybridflow-note.md) (n.d., evidence: unknown) — **准确率表现（Table 1）**：
+- CoT（GPT-4.1）在所有非直接提示方法中取得最高平均准确率 58.99%
+- HybridFlow 平均准确率为 55.34%，紧随其后，优于 SoT（52.90%）和 PASTA（45.56%）等单模型分解方法，以及协作基线 HybridLLM（38.70%）和 DoT（46.50%）
+- 纯端侧 CoT（Llama3.2-3B）仅 19.59%，纯云端 Direct Prompt（GPT-4.1）为 53.33%
+**效率表现（Table 2）**：
+- Hyb
+- [LLM Agent Cost Attribution: Complete Production 2026 Guide](summaries/costattribution-note.md) (n.d., evidence: unknown) — 多租户实例揭示了聚合指标为何具有误导性：
+| 租户分段 | 数量 | 收入 | Token 支出 | 毛利率 |
+|---|---|---|---|---|
+| 健康（包月 tier） | 34 | \$145,000 | \$14,600 | 90% |
+| 高消耗（应升级 tier） | 4 | \$22,000 | \$11,400 | 48% |
+| 失控（集成中的循环缺陷） | 2 | \$13,000 | \$8,000 | 38% |
+- 聚合 81% 的毛利率真实但无意义。
+- [Langfuse 完成 5000 万美元 B 轮融资：AI Agent 可观测性迎来产业级拐点](summaries/s2-015-AI-Agent-Observability-Platform-Langfuse.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [MAS-Bench: A Unified Benchmark for Shortcut-Augmented Hybrid Mobile GUI Agents](summaries/masbench-note.md) (n.d., evidence: unknown) — ### 总体性能对比
+在全部 139 项任务上使用预定义快捷方式知识库的实验结果（Table 2）揭示了四个关键发现：
+1.
+- Plus 48 additional linked summaries in [Index](index.md).
 
 ## Related Concepts
 
-- [[concepts/agent-observability-landscape]]
-- [[concepts/trace-schema-and-telemetry-standards]]
-- [[concepts/runtime-instrumentation-and-otel]]
+- [agent-observability-landscape](concepts/agent-observability-landscape.md)
+- [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md)
+- [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md)

@@ -26,5 +26,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]]
+- Concepts: [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md)
 - Entities: None identified

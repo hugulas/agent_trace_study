@@ -21,5 +21,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/trace-schema-and-telemetry-standards]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]], [[concepts/observability-products-and-market-map]]
-- Entities: [[entities/AgentOps|AgentOps]]
+- Concepts: [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md)
+- Entities: [AgentOps](entities/AgentOps.md)

@@ -30,5 +30,5 @@ $$
 
 ## Wiki Connections
 
-- Concepts: [[concepts/production-operations-and-cloud-platforms]]
+- Concepts: [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md)
 - Entities: None identified

@@ -42,5 +42,5 @@ $$p(a_t \mid \tau_{<t}; \theta) = \prod_{i=1}^{|a_t|} p(a_t^i \mid a_t^{<i}, \ta
 
 ## Wiki Connections
 
-- Concepts: [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/cost-token-and-resource-attribution]]
+- Concepts: [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
 - Entities: None identified

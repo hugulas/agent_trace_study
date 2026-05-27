@@ -31,5 +31,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/Claude-Code|Claude Code]]
+- Concepts: [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [Claude Code](entities/Claude-Code.md)

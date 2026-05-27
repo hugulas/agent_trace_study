@@ -16,5 +16,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
-- Entities: [[entities/Arize-Phoenix|Arize Phoenix]], [[entities/Helicone|Helicone]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
+- Entities: [Arize Phoenix](entities/Arize-Phoenix.md), [Helicone](entities/Helicone.md)

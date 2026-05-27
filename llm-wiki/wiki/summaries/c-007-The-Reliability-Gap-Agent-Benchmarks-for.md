@@ -15,5 +15,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/trace-schema-and-telemetry-standards]], [[concepts/evaluation-and-benchmarking]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/cost-token-and-resource-attribution]], [[concepts/agent-frameworks-and-coding-agents]]
+- Concepts: [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
 - Entities: None identified

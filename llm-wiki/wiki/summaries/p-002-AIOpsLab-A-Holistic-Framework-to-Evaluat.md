@@ -22,5 +22,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/observability-products-and-market-map]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/AgentOps|AgentOps]]
+- Concepts: [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [AgentOps](entities/AgentOps.md)

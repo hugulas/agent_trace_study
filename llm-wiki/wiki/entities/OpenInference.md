@@ -6,21 +6,21 @@
 
 ## Linked Source Notes
 
-- [[summaries/a-014-Building-Consistent-Workflows-with-Codex|Building Consistent Workflows with Codex CLI & Agents SDK]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/c-004-OpenInference-OpenTelemetry-Instrumentat|GitHub - Arize-ai/openinference: OpenTelemetry Instrumentation for AI Observability]] (n.d., evidence: medium) — Indexed as relevant by title and metadata.
-- [[summaries/c-006-MASPrism-Lightweight-Failure-Attribution|MASPrism: Lightweight Failure Attribution for Multi-Agent Systems Using Prefill-Stage Signals]] (2026, evidence: medium) — Indexed as relevant by title and metadata.
-- [[summaries/c-008-AI-NativeBench-An-Open-Source-White-Box|AI-NativeBench: An Open-Source White-Box Agentic Benchmark Suite for AI-Native Systems]] (2026, evidence: high) — Indexed as relevant by title and metadata.
-- [[summaries/c-011-AgentTrace-A-Structured-Logging-Framewor|AgentTrace: A Structured Logging Framework for Agent System Observability]] (2026, evidence: medium) — Indexed as relevant by title and metadata.
-- [[summaries/c-012-Agent-Audit-Trail-A-Standard-Logging-For|Agent Audit Trail: A Standard Logging Format for Autonomous AI Systems]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/c-014-OpenInference-Specification|OpenInference Specification - openinference]] (n.d., evidence: high（作为社区事实标准的技术规范文档）) — Indexed as relevant by title and metadata.
-- [[summaries/c-015-OpenInference-OpenTelemetry-for-LLM-Apps|What is OpenInference? OTel for LLM 2026]] (n.d., evidence: medium（作为生态概述和对比分析，时效性强，但带有 FutureAGI 自身产品视角）) — Indexed as relevant by title and metadata.
-- [[summaries/c-020-What-Is-AI-Agent-Monitoring-Key-Metrics|What Is AI Agent Monitoring? Key Metrics & Techniques]] (n.d., evidence: medium) — Indexed as relevant by title and metadata.
-- [[summaries/s1-010-GenAIOps-on-AWS-End-to-End-Observability|GenAIOps on AWS: 端到端可观测性栈]] (n.d., evidence: high) — Indexed as relevant by title and metadata.
-- [[summaries/s2-005-目前主流的智能体可观测性和智能体评测相关的产品调研-Coze-Loop详细介绍|目前主流的智能体可观测性和智能体评测相关的产品调研]] (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
-- [[summaries/s2-011-Elastic-Brings-Observability-to-AI-Agent|Elastic Brings Observability to AI Agents with Amazon Bedrock AgentCore]] (n.d., evidence: low) — Indexed as relevant by title and metadata.
+- [Building Consistent Workflows with Codex CLI & Agents SDK](summaries/a-014-Building-Consistent-Workflows-with-Codex.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [GitHub - Arize-ai/openinference: OpenTelemetry Instrumentation for AI Observability](summaries/c-004-OpenInference-OpenTelemetry-Instrumentat.md) (n.d., evidence: medium) — Indexed as relevant by title and metadata.
+- [MASPrism: Lightweight Failure Attribution for Multi-Agent Systems Using Prefill-Stage Signals](summaries/c-006-MASPrism-Lightweight-Failure-Attribution.md) (2026, evidence: medium) — Indexed as relevant by title and metadata.
+- [AI-NativeBench: An Open-Source White-Box Agentic Benchmark Suite for AI-Native Systems](summaries/c-008-AI-NativeBench-An-Open-Source-White-Box.md) (2026, evidence: high) — Indexed as relevant by title and metadata.
+- [AgentTrace: A Structured Logging Framework for Agent System Observability](summaries/c-011-AgentTrace-A-Structured-Logging-Framewor.md) (2026, evidence: medium) — Indexed as relevant by title and metadata.
+- [Agent Audit Trail: A Standard Logging Format for Autonomous AI Systems](summaries/c-012-Agent-Audit-Trail-A-Standard-Logging-For.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [OpenInference Specification - openinference](summaries/c-014-OpenInference-Specification.md) (n.d., evidence: high（作为社区事实标准的技术规范文档）) — Indexed as relevant by title and metadata.
+- [What is OpenInference? OTel for LLM 2026](summaries/c-015-OpenInference-OpenTelemetry-for-LLM-Apps.md) (n.d., evidence: medium（作为生态概述和对比分析，时效性强，但带有 FutureAGI 自身产品视角）) — Indexed as relevant by title and metadata.
+- [What Is AI Agent Monitoring? Key Metrics & Techniques](summaries/c-020-What-Is-AI-Agent-Monitoring-Key-Metrics.md) (n.d., evidence: medium) — Indexed as relevant by title and metadata.
+- [GenAIOps on AWS: 端到端可观测性栈](summaries/s1-010-GenAIOps-on-AWS-End-to-End-Observability.md) (n.d., evidence: high) — Indexed as relevant by title and metadata.
+- [目前主流的智能体可观测性和智能体评测相关的产品调研](summaries/s2-005-目前主流的智能体可观测性和智能体评测相关的产品调研-Coze-Loop详细介绍.md) (n.d., evidence: unknown) — Indexed as relevant by title and metadata.
+- [Elastic Brings Observability to AI Agents with Amazon Bedrock AgentCore](summaries/s2-011-Elastic-Brings-Observability-to-AI-Agent.md) (n.d., evidence: low) — Indexed as relevant by title and metadata.
 
 ## Related Concepts
 
-- [[concepts/agent-observability-landscape]]
-- [[concepts/trace-schema-and-telemetry-standards]]
-- [[concepts/observability-products-and-market-map]]
+- [Agent Observability Landscape](concepts/agent-observability-landscape.md)
+- [Trace Schema and Telemetry Standards](concepts/trace-schema-and-telemetry-standards.md)
+- [Observability Products and Market Map](concepts/observability-products-and-market-map.md)

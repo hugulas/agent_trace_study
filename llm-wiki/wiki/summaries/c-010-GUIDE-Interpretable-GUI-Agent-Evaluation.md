@@ -20,5 +20,5 @@ GUIDE 的核心贡献在于重新界定了 "好的 Agent 评估器" 的标准：
 
 ## Wiki Connections
 
-- Concepts: [[concepts/trace-schema-and-telemetry-standards]], [[concepts/evaluation-and-benchmarking]]
+- Concepts: [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md)
 - Entities: None identified

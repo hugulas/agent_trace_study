@@ -35,5 +35,5 @@ SeqCV 相比 o4-mini-high
 
 ## Wiki Connections
 
-- Concepts: [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/agent-frameworks-and-coding-agents]]
+- Concepts: [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
 - Entities: None identified

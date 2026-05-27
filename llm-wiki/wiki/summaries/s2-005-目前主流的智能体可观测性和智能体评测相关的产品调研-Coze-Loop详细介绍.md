@@ -18,5 +18,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/failure-diagnosis-and-attribution]], [[concepts/evaluation-and-benchmarking]], [[concepts/observability-products-and-market-map]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/OpenInference|OpenInference]], [[entities/AgentTrace|AgentTrace]], [[entities/LangSmith|LangSmith]], [[entities/Langfuse|Langfuse]], [[entities/Arize-Phoenix|Arize Phoenix]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [OpenInference](entities/OpenInference.md), [AgentTrace](entities/AgentTrace.md), [LangSmith](entities/LangSmith.md), [Langfuse](entities/Langfuse.md), [Arize Phoenix](entities/Arize-Phoenix.md)

@@ -34,5 +34,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/runtime-instrumentation-and-otel]], [[concepts/evaluation-and-benchmarking]], [[concepts/cost-token-and-resource-attribution]]
+- Concepts: [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
 - Entities: None identified

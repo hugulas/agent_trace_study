@@ -4,7 +4,7 @@ This is a Karpathy-style LLM wiki compiled from `agentic_trace_insight/notes/`.
 
 ## Scope
 
-The wiki tracks agentic AI tracing, observability, audit trails, failure diagnosis, evaluation, production operations, cost attribution, and market/tooling evidence. The current raw corpus contains 117 Markdown notes copied into `raw/notes/`.
+The wiki tracks agentic AI tracing, observability, audit trails, failure diagnosis, evaluation, production operations, cost attribution, and market/tooling evidence. The current raw corpus contains 162 Markdown notes copied into `raw/notes/`.
 
 ## Operating Rules
 

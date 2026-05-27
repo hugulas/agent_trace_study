@@ -28,5 +28,5 @@ Table 1 展示了三种方法在 Who-When 数据集上的总体表现（使用 G
 
 ## Wiki Connections
 
-- Concepts: [[concepts/failure-diagnosis-and-attribution]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/cost-token-and-resource-attribution]]
+- Concepts: [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
 - Entities: None identified

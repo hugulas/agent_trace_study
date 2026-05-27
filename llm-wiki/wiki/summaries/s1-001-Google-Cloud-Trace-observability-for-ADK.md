@@ -18,5 +18,5 @@ Google 将 Cloud Trace 与 ADK 深度集成的策略非常清晰：
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/production-operations-and-cloud-platforms]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/AWS-AgentCore|AWS AgentCore]], [[entities/Google-ADK-and-Vertex-AI|Google ADK and Vertex AI]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [AWS AgentCore](entities/AWS-AgentCore.md), [Google ADK and Vertex AI](entities/Google-ADK-and-Vertex-AI.md)

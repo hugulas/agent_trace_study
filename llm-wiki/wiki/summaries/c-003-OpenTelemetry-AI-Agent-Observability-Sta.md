@@ -17,5 +17,5 @@ OpenTelemetry 这篇博客的价值在于它从标准制定者的视角，将 Ag
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/evaluation-and-benchmarking]], [[concepts/production-operations-and-cloud-platforms]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md)

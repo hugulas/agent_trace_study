@@ -17,5 +17,5 @@ Langfuse 是我观察到的开源 LLM 可观测性领域社区增长最为迅猛
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/evaluation-and-benchmarking]], [[concepts/audit-trails-security-and-governance]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/AgentTrace|AgentTrace]], [[entities/LangSmith|LangSmith]], [[entities/Langfuse|Langfuse]], [[entities/Arize-Phoenix|Arize Phoenix]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [AgentTrace](entities/AgentTrace.md), [LangSmith](entities/LangSmith.md), [Langfuse](entities/Langfuse.md), [Arize Phoenix](entities/Arize-Phoenix.md)

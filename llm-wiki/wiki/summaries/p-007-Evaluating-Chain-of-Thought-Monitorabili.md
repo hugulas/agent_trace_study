@@ -23,5 +23,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/evaluation-and-benchmarking]], [[concepts/agent-frameworks-and-coding-agents]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
 - Entities: None identified

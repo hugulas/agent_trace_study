@@ -24,5 +24,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/failure-diagnosis-and-attribution]], [[concepts/production-operations-and-cloud-platforms]]
+- Concepts: [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md)
 - Entities: None identified

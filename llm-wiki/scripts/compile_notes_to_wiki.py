@@ -206,8 +206,8 @@ def write_summary(note: dict) -> None:
     if not takeaways:
         takeaways = [f"This source is indexed primarily by title and metadata; the extracted note has little substantive body text."]
 
-    concept_links = ", ".join(f"[[concepts/{c}]]" for c in note["concepts"])
-    entity_links = ", ".join(f"[[entities/{slugify(e)}|{e}]]" for e in note["entities"]) or "None identified"
+    concept_links = ", ".join(f"[{c}](concepts/{c}.md)" for c in note["concepts"])
+    entity_links = ", ".join(f"[{e}](entities/{slugify(e)}.md)" for e in note["entities"]) or "None identified"
     raw_rel = f"raw/notes/{note['path'].name}"
     pdf = meta.get("PDF", "").replace("`", "")
     source_bits = []
@@ -248,7 +248,7 @@ def summarize_note_for_concept(note: dict) -> str:
     section = note["sections"].get("关键结果") or note["sections"].get("研究问题") or note["sections"].get("原文摘要翻译", "")
     sentence = first_sentences(section, 1)
     body = sentence[0] if sentence else "Indexed as relevant by title and metadata."
-    return f"- [[summaries/{note['summary_slug']}|{link_label(note['title'])}]] ({year}, evidence: {quality}) — {body[:260]}"
+    return f"- [{link_label(note['title'])}](summaries/{note['summary_slug']}.md) ({year}, evidence: {quality}) — {body[:260]}"
 
 
 def write_concept(slug: str, cfg: dict, notes: list[dict]) -> None:
@@ -256,7 +256,7 @@ def write_concept(slug: str, cfg: dict, notes: list[dict]) -> None:
     source_lines = [summarize_note_for_concept(n) for n in notes[:18]]
     overflow = len(notes) - len(source_lines)
     if overflow > 0:
-        source_lines.append(f"- Plus {overflow} additional linked summaries in [[wiki/index|Index]].")
+        source_lines.append(f"- Plus {overflow} additional linked summaries in [Index](index.md).")
 
     related = [s for s, other in CONCEPTS_DEF.items() if s != slug and set(cfg["keywords"]) & set(other["keywords"])]
     if not related:
@@ -285,7 +285,7 @@ Agentic systems make decisions through multi-step trajectories: prompts, model c
 
 ## Related Concepts
 
-{chr(10).join(f'- [[concepts/{r}]]' for r in related[:5])}
+{chr(10).join(f'- [{r}](concepts/{r}.md)' for r in related[:5])}
 """
     (CONCEPTS / f"{slug}.md").write_text(content, encoding="utf-8")
 
@@ -305,9 +305,9 @@ def write_entity(name: str, notes: list[dict]) -> None:
 
 ## Related Concepts
 
-- [[concepts/agent-observability-landscape]]
-- [[concepts/trace-schema-and-telemetry-standards]]
-- [[concepts/observability-products-and-market-map]]
+- [Agent Observability Landscape](concepts/agent-observability-landscape.md)
+- [Trace Schema and Telemetry Standards](concepts/trace-schema-and-telemetry-standards.md)
+- [Observability Products and Market Map](concepts/observability-products-and-market-map.md)
 """
     (ENTITIES / f"{slug}.md").write_text(content, encoding="utf-8")
 
@@ -352,12 +352,12 @@ def write_index(notes: list[dict], by_concept: dict[str, list[dict]], by_entity:
         "> A compiled wiki for agent trace observability, auditability, failure diagnosis, production operations, and cost visibility.",
         "",
         "## Navigation",
-        "- [[#Knowledge Layers]] · [[#Concepts]] · [[#Entities]] · [[#Summaries]] · [[#Open Questions]]",
+        "- [#Knowledge Layers](#knowledge-layers) · [#Concepts](#concepts) · [#Entities](#entities) · [#Summaries](#summaries) · [#Open Questions](#open-questions)",
         "",
         "## Knowledge Layers",
-        "- [[terms/agent-trace|词条：智能体轨迹]] · [[terms/failure-attribution|失败归因]] · [[terms/process-compliance|过程合规性]] · [[terms/trace-schema|轨迹 Schema]] · [[terms/harness|Harness]]",
-        "- [[viewpoints/observability-is-not-logging|观点：可观测性不是日志收集]] · [[viewpoints/final-reward-is-insufficient|最终奖励不足以评估智能体]] · [[viewpoints/schema-is-the-product-boundary|Schema 决定产品边界]]",
-        "- [[comparisons/diagnosis-vs-compliance-vs-logging|对比：诊断/合规/日志]] · [[comparisons/otel-vs-agent-specific-schema|OTel 与 Agent Schema]] · [[comparisons/observability-product-map|产品工具地图]]",
+        "- [词条：智能体轨迹](terms/agent-trace.md) · [失败归因](terms/failure-attribution.md) · [过程合规性](terms/process-compliance.md) · [轨迹 Schema](terms/trace-schema.md) · [Harness](terms/harness.md)",
+        "- [观点：可观测性不是日志收集](viewpoints/observability-is-not-logging.md) · [观点：最终奖励不足以评估智能体](viewpoints/final-reward-is-insufficient.md) · [观点：Schema 决定产品边界](viewpoints/schema-is-the-product-boundary.md)",
+        "- [对比：诊断/合规/日志](comparisons/diagnosis-vs-compliance-vs-logging.md) · [对比：OTel 与 Agent Schema](comparisons/otel-vs-agent-specific-schema.md) · [对比：产品工具地图](comparisons/observability-product-map.md)",
         "",
         "## Concepts",
     ]
@@ -368,19 +368,19 @@ def write_index(notes: list[dict], by_concept: dict[str, list[dict]], by_entity:
         lines.append(f"### {category}")
         for slug, cfg in sorted(by_category[category], key=lambda item: item[1]["title"]):
             count = len(by_concept.get(slug, []))
-            lines.append(f"- [[concepts/{slug}|{cfg['title']}]] — {cfg['summary']} ({count} linked notes)")
+            lines.append(f"- [{cfg['title']}](concepts/{slug}.md) — {cfg['summary']} ({count} linked notes)")
         lines.append("")
 
     lines.append("## Entities")
     for name in sorted(by_entity):
         count = len(by_entity[name])
-        lines.append(f"- [[entities/{slugify(name)}|{name}]] — recurring entity in {count} source notes")
+        lines.append(f"- [{name}](entities/{slugify(name)}.md) — recurring entity in {count} source notes)")
     lines.append("")
 
     lines.append("## Summaries")
     for note in sorted(notes, key=lambda n: n["summary_slug"]):
         q = note["meta"].get("证据质量", "unknown") or "unknown"
-        lines.append(f"- [[summaries/{note['summary_slug']}|{link_label(note['title'])}]] — evidence quality: {q}")
+        lines.append(f"- [{link_label(note['title'])}](summaries/{note['summary_slug']}.md) — evidence quality: {q}")
     lines.append("")
 
     lines.append("## Open Questions")

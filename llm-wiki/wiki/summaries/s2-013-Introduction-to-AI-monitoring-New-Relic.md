@@ -22,5 +22,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
-- Entities: [[entities/Langfuse|Langfuse]], [[entities/Arize-Phoenix|Arize Phoenix]], [[entities/AWS-AgentCore|AWS AgentCore]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
+- Entities: [Langfuse](entities/Langfuse.md), [Arize Phoenix](entities/Arize-Phoenix.md), [AWS AgentCore](entities/AWS-AgentCore.md)

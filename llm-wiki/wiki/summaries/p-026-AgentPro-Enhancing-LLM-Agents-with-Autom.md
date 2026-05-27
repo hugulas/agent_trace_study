@@ -24,5 +24,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md)
 - Entities: None identified

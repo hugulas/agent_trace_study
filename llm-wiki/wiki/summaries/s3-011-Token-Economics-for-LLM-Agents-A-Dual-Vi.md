@@ -20,5 +20,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/failure-diagnosis-and-attribution]], [[concepts/audit-trails-security-and-governance]], [[concepts/production-operations-and-cloud-platforms]], [[concepts/observability-products-and-market-map]], [[concepts/cost-token-and-resource-attribution]]
+- Concepts: [failure-diagnosis-and-attribution](concepts/failure-diagnosis-and-attribution.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [production-operations-and-cloud-platforms](concepts/production-operations-and-cloud-platforms.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md)
 - Entities: None identified

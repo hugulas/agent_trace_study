@@ -36,5 +36,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/evaluation-and-benchmarking]], [[concepts/audit-trails-security-and-governance]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/Claude-Code|Claude Code]]
+- Concepts: [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [Claude Code](entities/Claude-Code.md)

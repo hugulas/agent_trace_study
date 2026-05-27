@@ -28,5 +28,5 @@ $$\text{g-mean}^2 = \mathrm{TPR} \times \mathrm{TNR}$$
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/evaluation-and-benchmarking]], [[concepts/cost-token-and-resource-attribution]], [[concepts/agent-frameworks-and-coding-agents]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [cost-token-and-resource-attribution](concepts/cost-token-and-resource-attribution.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
 - Entities: None identified

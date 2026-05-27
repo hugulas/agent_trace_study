@@ -22,5 +22,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/evaluation-and-benchmarking]], [[concepts/audit-trails-security-and-governance]], [[concepts/observability-products-and-market-map]], [[concepts/agent-frameworks-and-coding-agents]]
-- Entities: [[entities/AgentOps|AgentOps]], [[entities/Claude-Code|Claude Code]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [evaluation-and-benchmarking](concepts/evaluation-and-benchmarking.md), [audit-trails-security-and-governance](concepts/audit-trails-security-and-governance.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md), [agent-frameworks-and-coding-agents](concepts/agent-frameworks-and-coding-agents.md)
+- Entities: [AgentOps](entities/AgentOps.md), [Claude Code](entities/Claude-Code.md)

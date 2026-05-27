@@ -23,5 +23,5 @@ $R$ 为满足四项关键属性的结构化记录：一致性（schema 合规）
 
 ## Wiki Connections
 
-- Concepts: [[concepts/agent-observability-landscape]], [[concepts/trace-schema-and-telemetry-standards]], [[concepts/runtime-instrumentation-and-otel]], [[concepts/observability-products-and-market-map]]
-- Entities: [[entities/OpenTelemetry|OpenTelemetry]], [[entities/AgentTrace|AgentTrace]], [[entities/AgentOps|AgentOps]]
+- Concepts: [agent-observability-landscape](concepts/agent-observability-landscape.md), [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md), [runtime-instrumentation-and-otel](concepts/runtime-instrumentation-and-otel.md), [observability-products-and-market-map](concepts/observability-products-and-market-map.md)
+- Entities: [OpenTelemetry](entities/OpenTelemetry.md), [AgentTrace](entities/AgentTrace.md), [AgentOps](entities/AgentOps.md)

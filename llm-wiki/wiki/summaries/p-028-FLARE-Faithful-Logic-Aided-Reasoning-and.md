@@ -19,5 +19,5 @@
 
 ## Wiki Connections
 
-- Concepts: [[concepts/trace-schema-and-telemetry-standards]]
+- Concepts: [trace-schema-and-telemetry-standards](concepts/trace-schema-and-telemetry-standards.md)
 - Entities: None identified
